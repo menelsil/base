@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="ru"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Резюме: Дмитрий Иваненко</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        :root {
+            --sber-green: #21A038;
+            --sber-dark: #1A7A2E;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --text-light: #888888;
+            --text-lighter: #AAAAAA;
+            --bg-white: #FFFFFF;
+            --divider-light: #E5E5E5;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-white);
+            line-height: 1.5;
+        }
+        
+        .text-semibold { font-weight: 600; }
+        .text-medium { font-weight: 500; }
+        .text-regular { font-weight: 400; }
+        
+        .section-spacing { margin-bottom: 24pt; }
+        .paragraph-spacing { margin-bottom: 8pt; }
+        
+        /* Fixed TOC */
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-white);
+            border-right: 1px solid var(--divider-light);
+            padding: 40px 24px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 12pt;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .toc-link:hover {
+            color: var(--sber-green);
+        }
+        
+        .toc-link.active {
+            color: var(--sber-green);
+            font-weight: 500;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            
+            .header-name {
+                font-size: 24pt !important;
+            }
+            
+            .header-patronymic {
+                font-size: 12pt !important;
+            }
+            
+            .contact-line {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-spacing {
+                margin-bottom: 20pt;
+            }
+            
+            .experience-block {
+                margin-bottom: 20pt;
+            }
+        }
+        
+        .contact-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 11pt;
+        }
+        
+        .contact-line span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .experience-block {
+            margin-bottom: 20pt;
+        }
+        
+        .company-name {
+            font-size: 13pt;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .date-range {
+            font-size: 11pt;
+            color: var(--text-light);
+        }
+        
+        .position-title {
+            font-size: 12pt;
+            color: var(--text-secondary);
+            margin-top: 2pt;
+        }
+        
+        .achievement-block {
+            margin-left: 1rem;
+            margin-top: 8pt;
+            padding-left: 0.5rem;
+            border-left: 2px solid var(--divider-light);
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .bento-item {
+            background: var(--bg-white);
+            padding: 20px;
+            border: 1px solid var(--divider-light);
+            border-radius: 8px;
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body>
+        <section id="personal" class="section-spacing">
+          <div class="bento-grid">
+            <div class="bento-item">
+              <h1 class="header-name text-3xl text-semibold mb-1">ИВАНЕНКО Дмитрий</h1>
+              <p class="header-patronymic text-base text-regular text-secondary">Алексеевич</p>
+
+              <div class="contact-line mt-6">
+                <span><i class="fas fa-phone fa-xs"></i> +7 (916) 011-48-28</span>
+                <span>•</span>
+                <span><i class="fas fa-envelope fa-xs"></i> DAIvanenko@sber.ru</span>
+                <span>•</span>
+                <span><i class="fab fa-telegram fa-xs"></i> @menelsi</span>
+              </div>
+
+              <div class="text-xs text-light mt-3">
+                6 июня 1985 • Могойтуй, Читинская область
+              </div>
+            </div>
+
+            <div class="bento-item">
+              <img src="https://3.downloader.disk.yandex.ru/preview/c36808a6bad59dea3ede14a25c5dffd2705b9c93389e897dd41f673eb5d7a75a/inf/jZ8JSGc0SpFOpzZR_rMLBxpU6jYcobEPgLe0Bo5fm7cEA1N_te0LmQG0DpyoHUCypYCOOfKtXM5IPTxXc0hEiw%3D%3D?uid=210595316&filename=photo_5202215572224020723_y.jpg" alt="Деловой портрет" class="w-full h-32 object-cover rounded" size="small" aspect="wide" style="photo" query="Деловой портрет" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+            </div>
+          </div>
+        </section>
+
+      <section id="profile" class="section-spacing">
+          <h2 class="text-base text-medium mb-4 tracking-wide">ПРОФИЛЬ</h2>
+
+          <div class="space-y-4 text-sm text-regular leading-relaxed">
+            <p>Профессионал с более чем 15-летним опытом в управлении комплексными проектами, реализации коммуникационных стратегий executive-уровня, организации публичных мероприятий, международных отношениях и GR.</p>
+
+            <p>С 2016 года — в команде Протокола Сбера, где отвечает за коммуникации от имени Президента Банка с первыми лицами международных компаний, развитие сотрудничества и подготовку аналитических материалов для руководства Банка. Ранее занимал ключевые роли в Аппарате Губернатора Свердловской области, где успешно реализовал проекты в сфере образования и развития промышленности.</p>
+          </div>
+        </section>
+
+        <section id="experience" class="section-spacing">
+          <h2 class="text-base text-medium mb-6 tracking-wide">ОПЫТ РАБОТЫ</h2>
+
+          <!-- Sberbank -->
+          <div class="experience-block">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="company-name">ПАО Сбербанк</h3>
+                <p class="position-title">Главный специалист, менеджер Отдела протокола</p>
+              </div>
+              <span class="date-range">2016 – н.вр.</span>
+            </div>
+
+            <div class="mt-4 space-y-3 text-sm">
+              <p>Привлечение участников официального уровня и первых лиц крупнейших международных компаний на мероприятия Сбера, с использованием предиктивных поведенческих моделей.</p>
+
+              <div class="achievement-block">
+                <p>Деловые завтраки на ВЭФ в Давосе с 2017 по 2020 годы;<br/>
+                  Мероприятия Сбера на ПМЭФ с 2017 по 2024 годы;<br/>
+                  ICC, AIJ, Демо-дни Sber500 с 2018 по 2024 годы.</p>
+              </div>
+
+              <p>Разработка технических требований к продуктам и инструментам, реализующих Client Journey на мероприятиях Сбера (от получения приглашения до информированности клиентов о всех организационных деталях мероприятия).</p>
+
+              <p>Организация рабочих визитов в Сбер CEO таких компаний как Huawei, SMIC, Alibaba, Founders Fund, Visa, Mastercard, JP Morgan, PwC, EY, Glencore, SAP и других.</p>
+
+              <p>Организация рабочих визитов топ-менеджмента Сбера в Alibaba, Microsoft, Apple, Google, Facebook и другие.</p>
+
+              <p>Подготовка аналитических материалов для Президента Банка на технологическую тематику.</p>
+            </div>
+
+            <!-- Awards -->
+            <div class="mt-6 pt-4 border-t border-divider-light">
+              <div class="space-y-2 text-xs">
+                <p><em>2021 — Лучшая корпоративная служба протокола</em> по версии форума First Officials.</p>
+                <p><em>2017 — Лучшая служба протокола</em> по версии Национальной ассоциации служб протокола.</p>
+              </div>
+            </div>
+          </div>
+
+            <div class="experience-block">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="company-name">Представительство Губернатора Свердловской области в органах государственной власти Российской Федерации</h3>
+                <p class="position-title">Главный специалист, Заместитель начальника отдела</p>
+              </div>
+              <span class="date-range">2013 – 2016</span>
+            </div>
+
+            <div class="mt-4 space-y-3 text-sm">
+              <p>Запуск проекта «Уральская инженерная школа» в сотрудничестве с УРФУ, УГМК и Уралвагонзаводом, подготовка документов по бюджетному финансированию проекта совместно с Минфином РФ, Минобром РФ.</p>
+
+              <p>Организация первых «ИННОПРОМов», привлечение иностранных делегаций и компаний для участия в форуме.</p>
+
+              <p>Организация деловых миссий Свердловской области зарубеж, работа с иностранным дипкорпусом по повышению узнаваемости уральских брендов.</p>
+
+              <p>Участие в заявочной кампании Екатеринбурга ЭКСПО-2025.</p>
+            </div>
+          </div>
+
+          <div class="experience-block">
+            <h3 class="company-name">ООО «СИБИНВЕСТПРОЕКТ»</h3>
+            <p class="position-title">Менеджер международных связей</p>
+            <span class="date-range">2008 – 2010</span>
+
+            <div class="mt-2 text-sm">
+              <p>Разработка и контроль сводной бизнес-документации, в т.ч. анализ инвестиционного проекта, анализ рынка, график инвестиций, кэш-фло на английском и русском языках для предоставления партнерской группе инвесторов.</p>
+            </div>
+          </div>
+
+          <div class="experience-block">
+            <h3 class="company-name">Стажировки</h3>
+            <p class="text-sm">МИД России и Государственная Дума — Работа по международным направлениям деятельности (2008)</p>
+          </div>
+        </section>
+
+        <section id="education" class="section-spacing">
+          <h2 class="text-base text-medium mb-6 tracking-wide">ОБРАЗОВАНИЕ</h2>
+
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-sm text-medium">Сибирский институт международных отношений и регионоведения</h3>
+              <p class="text-sm text-secondary">г. Новосибирск — 2008</p>
+            </div>
+
+            <div>
+              <h3 class="text-sm text-medium">Международный политологический форум &#34;Форос&#34;</h3>
+              <p class="text-sm text-secondary">2007</p>
+            </div>
+
+            <div>
+              <h3 class="text-sm text-medium">Высший колледж информатики при НГУ</h3>
+              <p class="text-sm text-secondary">г. Новосибирск — 2003</p>
+            </div>
+
+            <div class="pt-2">
+              <p class="text-sm">Государственное тестирование по международным экономическим отношениям — 90%</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="section-spacing">
+          <h2 class="text-base text-medium mb-6 tracking-wide">НАВЫКИ И ИНТЕРЕСЫ</h2>
+
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-sm text-medium mb-3">Языки</h3>
+              <div class="space-y-1 text-sm">
+                <div>Английский — <span class="text-semibold">C2</span></div>
+                <div>Немецкий — <span class="text-semibold">B1</span></div>
+                <div>Китайский — <span class="text-semibold">A1</span></div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-sm text-medium mb-3">Интересы</h3>
+              <p class="text-sm italic">Сильный интерес к эмерджентным технологиям, применению искусственного интеллекта в бизнесе и социальному прогрессу</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        function updateActiveTocLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveTocLink);
+        updateActiveTocLink(); // Initial call
+    </script>
+  
+
+</body></html>
