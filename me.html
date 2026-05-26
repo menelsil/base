@@ -1,402 +1,765 @@
-<!DOCTYPE html><html lang="ru"><head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Резюме: Дмитрий Иваненко</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-акселераторы: Референсы и модели взаимодействия</title>
     <style>
-        :root {
-            --sber-green: #21A038;
-            --sber-dark: #1A7A2E;
-            --text-primary: #000000;
-            --text-secondary: #666666;
-            --text-light: #888888;
-            --text-lighter: #AAAAAA;
-            --bg-white: #FFFFFF;
-            --divider-light: #E5E5E5;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: 1920px 1080px;
+            margin: 0;
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            background-color: var(--bg-white);
-            line-height: 1.5;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a1a;
+            color: #fff;
+            overflow-x: hidden;
         }
-        
-        .text-semibold { font-weight: 600; }
-        .text-medium { font-weight: 500; }
-        .text-regular { font-weight: 400; }
-        
-        .section-spacing { margin-bottom: 24pt; }
-        .paragraph-spacing { margin-bottom: 8pt; }
-        
-        /* Fixed TOC */
-        .toc-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 280px;
-            height: 100vh;
-            background: var(--bg-white);
-            border-right: 1px solid var(--divider-light);
-            padding: 40px 24px;
-            overflow-y: auto;
-            z-index: 1000;
+
+        .slide {
+            width: 1920px;
+            min-height: 1080px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0f0f2e 100%);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
-        
-        .main-content {
-            margin-left: 280px;
-            min-height: 100vh;
+
+        /* Decorative elements */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(46,139,87,0.15) 0%, transparent 70%);
+            border-radius: 50%;
         }
-        
-        .toc-link {
-            display: block;
-            padding: 8px 0;
-            color: var(--text-secondary);
-            font-size: 12pt;
-            text-decoration: none;
-            transition: color 0.2s ease;
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(30,144,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
-        
-        .toc-link:hover {
-            color: var(--sber-green);
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 80px;
+            height: 100%;
         }
-        
-        .toc-link.active {
-            color: var(--sber-green);
-            font-weight: 500;
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff 0%, #a0a0c0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .toc-fixed {
-                display: none;
-            }
-            .main-content {
-                margin-left: 0;
-            }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #e0e0ff;
         }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                padding-left: 16px;
-                padding-right: 16px;
-            }
-            
-            .header-name {
-                font-size: 24pt !important;
-            }
-            
-            .header-patronymic {
-                font-size: 12pt !important;
-            }
-            
-            .contact-line {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-spacing {
-                margin-bottom: 20pt;
-            }
-            
-            .experience-block {
-                margin-bottom: 20pt;
-            }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4ecdc4;
         }
-        
-        .contact-line {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            color: var(--text-secondary);
-            font-size: 11pt;
+
+        .subtitle {
+            font-size: 22px;
+            color: #8892b0;
+            margin-bottom: 40px;
         }
-        
-        .contact-line span {
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-russia { background: rgba(46,139,87,0.3); color: #4ecdc4; border: 1px solid rgba(46,139,87,0.5); }
+        .badge-usa { background: rgba(30,144,255,0.3); color: #64b5f6; border: 1px solid rgba(30,144,255,0.5); }
+        .badge-uk { background: rgba(147,112,219,0.3); color: #b39ddb; border: 1px solid rgba(147,112,219,0.5); }
+        .badge-global { background: rgba(255,107,53,0.3); color: #ffab76; border: 1px solid rgba(255,107,53,0.5); }
+        .badge-success { background: rgba(34,139,34,0.3); color: #7ee787; border: 1px solid rgba(34,139,34,0.5); }
+        .badge-warning { background: rgba(255,140,0,0.3); color: #ffd54f; border: 1px solid rgba(255,140,0,0.5); }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+            margin-top: 20px;
+        }
+
+        th {
+            background: rgba(26,26,46,0.9);
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            color: #8892b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(78,205,196,0.3);
+        }
+
+        td {
+            padding: 20px;
+            font-size: 15px;
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        tr:hover td {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .program-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .metric {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4ecdc4;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: #8892b0;
+            margin-top: 4px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(78,205,196,0.3);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 16px;
+            margin-bottom: 20px;
         }
-        
-        .experience-block {
-            margin-bottom: 20pt;
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
         }
-        
-        .company-name {
-            font-size: 13pt;
-            font-weight: 500;
-            color: var(--text-primary);
+
+        .icon-russia { background: rgba(46,139,87,0.2); }
+        .icon-usa { background: rgba(30,144,255,0.2); }
+        .icon-uk { background: rgba(147,112,219,0.2); }
+        .icon-global { background: rgba(255,107,53,0.2); }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
         }
-        
-        .date-range {
-            font-size: 11pt;
-            color: var(--text-light);
+
+        .card-body {
+            color: #a0a0c0;
+            font-size: 16px;
+            line-height: 1.6;
         }
-        
-        .position-title {
-            font-size: 12pt;
-            color: var(--text-secondary);
-            margin-top: 2pt;
+
+        .highlight {
+            color: #4ecdc4;
+            font-weight: 600;
         }
-        
-        .achievement-block {
-            margin-left: 1rem;
-            margin-top: 8pt;
-            padding-left: 0.5rem;
-            border-left: 2px solid var(--divider-light);
+
+        .stat-row {
+            display: flex;
+            gap: 40px;
+            margin: 30px 0;
         }
-        
-        .bento-grid {
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .flow-box {
+            background: rgba(78,205,196,0.15);
+            border: 2px solid rgba(78,205,196,0.4);
+            border-radius: 16px;
+            padding: 24px 32px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .flow-box h4 {
+            font-size: 36px;
+            color: #4ecdc4;
+            margin-bottom: 8px;
+        }
+
+        .flow-box p {
+            font-size: 16px;
+            color: #a0a0c0;
+        }
+
+        .flow-arrow {
+            font-size: 40px;
+            color: #4ecdc4;
+        }
+
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26,26,46,0.9);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #8892b0;
+        }
+
+        .page-num {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4ecdc4;
+        }
+
+        .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 40px;
         }
-        
-        .bento-item {
-            background: var(--bg-white);
-            padding: 20px;
-            border: 1px solid var(--divider-light);
+
+        .insight-box {
+            background: rgba(78,205,196,0.08);
+            border-left: 4px solid #4ecdc4;
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+
+        .insight-box p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #e0e0ff;
+            font-style: italic;
+        }
+
+        .model-table td:first-child {
+            font-weight: 700;
+            color: #4ecdc4;
+        }
+
+        .stars {
+            color: #ffd54f;
+            font-size: 18px;
+        }
+
+        @media print {
+            .slide {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+
+        .edit-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(78,205,196,0.9);
+            color: #0a0a1a;
+            padding: 12px 20px;
             border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        [contenteditable="true"] {
+            outline: none;
+            border-bottom: 2px dashed rgba(78,205,196,0.3);
+            transition: all 0.2s;
+        }
+
+        [contenteditable="true"]:hover {
+            background: rgba(78,205,196,0.1);
+            border-bottom: 2px solid #4ecdc4;
+        }
+
+        [contenteditable="true"]:focus {
+            background: rgba(78,205,196,0.15);
+            border-bottom: 2px solid #4ecdc4;
         }
     </style>
-  <base target="_blank">
+<base target="_blank">
 </head>
+<body>
 
-  <body>
-    <!-- Fixed Table of Contents -->
-    <nav class="toc-fixed">
-      <div class="mb-8">
-        <h3 class="text-medium text-sm text-gray-500 mb-4">НАВИГАЦИЯ</h3>
-        <a href="#personal" class="toc-link">Личные данные</a>
-        <a href="#profile" class="toc-link">Профиль</a>
-        <a href="#experience" class="toc-link">Опыт работы</a>
-        <a href="#education" class="toc-link">Образование</a>
-        <a href="#skills" class="toc-link">Навыки и интересы</a>
-      </div>
-
-      <div class="mt-8 pt-8 border-t border-gray-200">
-        <p class="text-xs text-gray-400 mb-2">Контакты</p>
-        <div class="space-y-1 text-xs text-gray-500">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone"></i>
-            <span>+7 (916) 011-48-28</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-envelope"></i>
-            <span>DAIvanenko@sber.ru</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fab fa-telegram"></i>
-            <span>@menelsi</span>
-          </div>
+<!-- SLIDE 1: Title -->
+<div class="slide">
+    <div class="content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%;">
+        <div style="margin-bottom: 30px;">
+            <span class="badge badge-success">ИССЛЕДОВАНИЕ РЫНКА</span>
+            <span class="badge badge-usa">2025-2026</span>
         </div>
-      </div>
-    </nav>
+        <h1 style="font-size: 64px; margin-bottom: 20px;">AI-акселераторы</h1>
+        <h2 style="font-size: 42px; color: #4ecdc4;">Референсы, модели взаимодействия и кейсы успеха</h2>
+        <p class="subtitle" style="font-size: 24px; margin-top: 30px;">Как корпорации взаимодействуют с AI-стартапами: от пилотов до поглощений</p>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="max-w-4xl mx-auto px-8 py-12">
+        <div class="flow-diagram" style="margin-top: 60px;">
+            <div class="flow-box">
+                <h4 contenteditable="true">100</h4>
+                <p contenteditable="true">гипотез</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+                <h4 contenteditable="true">20</h4>
+                <p contenteditable="true">MVP</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+                <h4 contenteditable="true">2</h4>
+                <p contenteditable="true">продукта для скейла</p>
+            </div>
+        </div>
 
-        <!-- Header Section -->
-        <section id="personal" class="section-spacing">
-          <div class="bento-grid">
-            <div class="bento-item">
-              <h1 class="header-name text-3xl text-semibold mb-1">ИВАНЕНКО Дмитрий Алексеевич</h1>
+        <div class="footer-bar" style="position: absolute;">
+            <span class="footer-text">AI-Помощник | Акселерационная программа</span>
+            <span class="page-num">1 / 6</span>
+        </div>
+    </div>
+</div>
 
-              <div class="contact-line mt-6">
-                <span><i class="fas fa-phone fa-xs"></i> +7 (916) 011-48-28</span>
-                <span><i class="fas fa-envelope fa-xs"></i> DAIvanenko@sber.ru</span>
-                <span><i class="fab fa-telegram fa-xs"></i> @menelsil</span>
-              </div>
-              <div class="text-xs text-light mt-3">
-                6 июня 1985 • Могойтуй, Читинская область
-              </div>
+<!-- SLIDE 2: Russian Programs -->
+<div class="slide">
+    <div class="content">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+            <span class="badge badge-russia">РОССИЯ</span>
+        </div>
+        <h1 contenteditable="true">Российские программы акселерации AI</h1>
+        <p class="subtitle">Корпоративные акселераторы и платформы инноваций</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Программа</th>
+                    <th>Формат</th>
+                    <th>Масштаб</th>
+                    <th>Исход взаимодействия</th>
+                    <th>Успех</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="program-name" contenteditable="true">Sber500 (Сбер)</div>
+                        <div style="font-size: 13px; color: #8892b0; margin-top: 4px;">Международный seed-акселератор</div>
+                    </td>
+                    <td contenteditable="true">Корп. акселератор<br>12 недель</td>
+                    <td contenteditable="true">150+ alumni<br>$59M+ raised<br><span class="highlight">7000+ контрактов</span></td>
+                    <td contenteditable="true">Пилоты → коммерческие контракты с Сбером</td>
+                    <td><span class="badge badge-success">Рост выручки x4</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="program-name" contenteditable="true">Industries (Газпром нефть)</div>
+                        <div style="font-size: 13px; color: #8892b0; margin-top: 4px;">Корпоративный акселератор</div>
+                    </td>
+                    <td contenteditable="true">Корп. акселератор<br>AI для нефтегаза</td>
+                    <td contenteditable="true">Лучшая корп. практика <span class="highlight">2025</span><br>160+ IT-проектов</td>
+                    <td contenteditable="true">Внедрение внутрь + награды</td>
+                    <td><span class="badge badge-success">Признание лучшей практики</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="program-name" contenteditable="true">GenerationS (РФПИ)</div>
+                        <div style="font-size: 13px; color: #8892b0; margin-top: 4px;">Платформа корп. инноваций</div>
+                    </td>
+                    <td contenteditable="true">Платформа инноваций</td>
+                    <td contenteditable="true">Крупнейшая в РФ<br>Партнёры: СИБУР, Соллерс</td>
+                    <td contenteditable="true">Корпоративные пилоты и внедрения</td>
+                    <td><span class="badge badge-success">Реальные внедрения</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="program-name" contenteditable="true">IIDF (ФРИИ)</div>
+                        <div style="font-size: 13px; color: #8892b0; margin-top: 4px;">Венчурный фонд</div>
+                    </td>
+                    <td contenteditable="true">Венчурный фонд<br>+ акселератор</td>
+                    <td contenteditable="true">432 инвестиции<br>80% выживаемость</td>
+                    <td contenteditable="true">Миноритарные инвестиции</td>
+                    <td><span class="badge badge-warning">0 успешных exits</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="insight-box">
+            <p contenteditable="true">«Миссия Sber500 — выявлять на ранних стадиях решения с потенциалом лидировать в отраслях» — Александр Ведяхин, Сбер</p>
+        </div>
+
+        <div class="footer-bar">
+            <span class="footer-text">Источники: Sber500, TAdviser, GenerationS, IIDF | 2025-2026</span>
+            <span class="page-num">2 / 6</span>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 3: International Programs -->
+<div class="slide">
+    <div class="content">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+            <span class="badge badge-usa">США / UK</span>
+        </div>
+        <h1 contenteditable="true">Зарубежные программы и spin-off модели</h1>
+        <p class="subtitle">Y Combinator, Intel, Goldman Sachs, DeepMind — доминирующие модели 2025-2026</p>
+
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-usa">YC</div>
+                    <div>
+                        <div class="card-title" contenteditable="true">Y Combinator</div>
+                        <span class="badge badge-usa">США</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p><span class="highlight">4000+ компаний</span>, $1.3T совокупная капитализация</p>
+                    <p>60% зимнего набора 2026 — AI-компании</p>
+                    <p>Исход: <span class="highlight">IPO / M&A</span> (Airbnb, Stripe, OpenAI)</p>
+                    <p style="margin-top: 12px;"><span class="badge badge-success">$1.3T совокупная капитализация</span></p>
+                </div>
             </div>
 
-            <div class="bento-item">
-              <img src="https://3.downloader.disk.yandex.ru/preview/50f28929d48e141eec079b8e3d2c76387c70ff22e629fb665f602ca5a4f5ae23/inf/bqNZ3v0fqfK6DxQfZK2gD6DW9VJM-Ksfm_OvC5gxrYQ1t5vtj2YZY14r0qQd5RLLiXyLuMycKn7BcRYg-iLOgQ%3D%3D?uid=210595316&filename=%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-02-06%20%D0%B2%2023.37.06.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=210595316&tknv=v3&size=2902x1790" alt="Фото" class="w-full h-34 object-cover rounded" size="small" aspect="wide" style="photo" query="Фото" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
-            </div>
-          </div>
-        </section>
-
-        <!-- Profile Section -->
-        <section id="profile" class="section-spacing">
-          <h2 class="text-base text-medium mb-4 tracking-wide">ПРОФИЛЬ</h2>
-
-          <div class="space-y-4 text-sm text-regular leading-relaxed">
-            <p>Профессионал с более чем 15-летним опытом в управлении комплексными проектами, реализации коммуникационных стратегий executive-уровня, организации публичных мероприятий, международных отношениях и GR.</p>
-
-            <p>С 2016 года — в команде Протокола Сбера, где отвечает за коммуникации от имени Президента Банка с первыми лицами международных компаний, развитие сотрудничества и подготовку аналитических материалов для руководства Банка. Ранее занимал ключевые роли в Аппарате Губернатора Свердловской области, где успешно реализовал проекты в сфере образования и развития промышленности.</p>
-          </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="section-spacing">
-          <h2 class="text-base text-medium mb-6 tracking-wide">ОПЫТ РАБОТЫ</h2>
-
-          <!-- Sberbank -->
-          <div class="experience-block">
-                <h3 class="company-name">ПАО Сбербанк</h3>
-                <p class="position-title">Главный специалист, менеджер Отдела протокола</p>
-                <span class="date-range">2016 – н.вр.</span>
-
-            <div class="mt-4 space-y-3 text-sm">
-              <p>Привлечение участников официального уровня и первых лиц крупнейших международных компаний на мероприятия Сбера, с использованием предиктивных поведенческих моделей.</p>
-
-              <div class="achievement-block">
-                <p>Деловые завтраки на ВЭФ в Давосе с 2017 по 2020 годы;<br/>
-                  Мероприятия Сбера на ПМЭФ с 2017 по 2024 годы;<br/>
-                  ICC, AIJ, Демо-дни Sber500 с 2018 по 2024 годы.</p>
-              </div>
-
-              <p>Разработка технических требований к продуктам и инструментам, реализующих Client Journey на мероприятиях Сбера (от получения приглашения до информированности клиентов о всех организационных деталях мероприятия).</p>
-
-              <p>Организация рабочих визитов в Сбер CEO таких компаний как Huawei, SMIC, Alibaba, Founders Fund, Visa, Mastercard, JP Morgan, PwC, EY, Glencore, SAP и других.</p>
-
-              <p>Организация рабочих визитов топ-менеджмента Сбера в Alibaba, Microsoft, Apple, Google, Facebook и другие.</p>
-
-              <p>Подготовка аналитических материалов для Президента Банка на технологическую тематику.</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-usa">IA</div>
+                    <div>
+                        <div class="card-title" contenteditable="true">Intel → Articul8 AI</div>
+                        <span class="badge badge-usa">США</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Spin-off из корпоративной лаборатории (2024)</p>
+                    <p>Полноценная GenAI-платформа для enterprise</p>
+                    <p>Исход: <span class="highlight">Независимое развитие + Intel как клиент</span></p>
+                    <p style="margin-top: 12px;"><span class="badge badge-success">Запуск A8 Essential, новые клиенты</span></p>
+                </div>
             </div>
 
-            <!-- Awards -->
-            <div class="mt-6 pt-4 border-t border-divider-light">
-              <div class="space-y-2 text-xs">
-                <p><em>2021 — Лучшая корпоративная служба протокола</em> по версии форума First Officials.</p>
-                <p><em>2017 — Лучшая служба протокола</em> по версии Национальной ассоциации служб протокола.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Governor's Office -->
-          <div class="experience-block">
-                <h3 class="company-name">Представительство Губернатора Свердловской области в органах государственной власти Российской Федерации</h3>
-                <p class="position-title">Главный специалист, Заместитель начальника отдела</p>
-                <span class="date-range">2013 – 2016</span>
-
-            <div class="mt-4 space-y-3 text-sm">
-              <p>Запуск проекта «Уральская инженерная школа» в сотрудничестве с УРФУ, УГМК и Уралвагонзаводом, подготовка документов по бюджетному финансированию проекта совместно с Минфином РФ, Минобром РФ.</p>
-
-              <p>Организация первых «ИННОПРОМов», привлечение иностранных делегаций и компаний для участия в форуме.</p>
-
-              <p>Организация деловых миссий Свердловской области зарубеж, работа с иностранным дипкорпусом по повышению узнаваемости уральских брендов.</p>
-
-              <p>Участие в заявочной кампании Екатеринбурга ЭКСПО-2025.</p>
-            </div>
-          </div>
-
-          <!-- Early Career -->
-
-          <div class="experience-block">
-            <h3 class="company-name">ООО «СИБИНВЕСТПРОЕКТ»</h3>
-            <p class="position-title">Менеджер международных связей</p>
-            <span class="date-range">2010 – 2013</span>
-
-            <div class="mt-2 text-sm">
-              <p>Разработка и контроль сводной бизнес-документации, в т.ч. анализ инвестиционного проекта, анализ рынка, график инвестиций, кэш-фло на английском и русском языках для предоставления партнерской группе инвесторов.</p>
-            </div>
-          </div>
-
-          <!-- Internships -->
-          <div class="experience-block">
-            <h3 class="company-name">Стажировки</h3>
-            <p class="text-sm">МИД России и Государственная Дума — Работа по международным направлениям деятельности (2008)</p>
-          </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section-spacing">
-          <h2 class="text-base text-medium mb-6 tracking-wide">ОБРАЗОВАНИЕ</h2>
-
-          <div class="space-y-4">
-            <div>
-              <h3 class="text-sm text-medium">Сибирский институт международных отношений и регионоведения</h3>
-              <p class="text-sm text-secondary">г. Новосибирск — 2008</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-usa">GS</div>
+                    <div>
+                        <div class="card-title" contenteditable="true">Goldman Sachs → Louisa AI</div>
+                        <span class="badge badge-usa">США</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Spin-off из GS Accelerate (внутренний инкубатор)</p>
+                    <p>AI-платформа коллективного интеллекта</p>
+                    <p>Рост: 25K → <span class="highlight">50K+ пользователей</span></p>
+                    <p style="margin-top: 12px;"><span class="badge badge-success">Insight Partners, масштабирование</span></p>
+                </div>
             </div>
 
-            <div>
-              <h3 class="text-sm text-medium">Международный политологический форум &#34;Форос&#34;</h3>
-              <p class="text-sm text-secondary">2007</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-uk">DM</div>
+                    <div>
+                        <div class="card-title" contenteditable="true">DeepMind → Isomorphic Labs</div>
+                        <span class="badge badge-uk">UK</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Spin-off из Google DeepMind</p>
+                    <p>AI для открытия лекарств</p>
+                    <p>Партнёрства: <span class="highlight">$3B</span> с Eli Lilly и Novartis</p>
+                    <p style="margin-top: 12px;"><span class="badge badge-success">Клинические испытания, $3B сделки</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <span class="footer-text">Источники: Y Combinator, Intel, Goldman Sachs, DeepMind | 2025-2026</span>
+            <span class="page-num">3 / 6</span>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 4: M&A and Acquisitions -->
+<div class="slide">
+    <div class="content">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+            <span class="badge badge-usa">M&A ТРЕНДЫ</span>
+        </div>
+        <h1 contenteditable="true">Стратегические поглощения AI-стартапов</h1>
+        <p class="subtitle">OpenAI, Databricks и другие — как корпорации усиливают продукт через M&A</p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 30px;">
+            <div class="card" style="text-align: center;">
+                <div class="metric" contenteditable="true">$3B</div>
+                <div class="metric-label">OpenAI → Windsurf</div>
+                <p style="margin-top: 16px; color: #a0a0c0; font-size: 15px;">AI-кодинг платформа<br>Интеграция в Codex</p>
+                <span class="badge badge-success" style="margin-top: 12px;">Продуктовое усиление</span>
             </div>
 
-            <div>
-              <h3 class="text-sm text-medium">Высший колледж информатики при НГУ</h3>
-              <p class="text-sm text-secondary">г. Новосибирск — 2003</p>
+            <div class="card" style="text-align: center;">
+                <div class="metric" contenteditable="true">$1.1B</div>
+                <div class="metric-label">OpenAI → Statsig</div>
+                <p style="margin-top: 16px; color: #a0a0c0; font-size: 15px;">Продуктовая платформа<br>Ускорение запусков</p>
+                <span class="badge badge-success" style="margin-top: 12px;">Инфраструктура</span>
             </div>
 
-            <div class="pt-2">
-              <p class="text-sm">Государственное тестирование по международным экономическим отношениям — 90%</p>
+            <div class="card" style="text-align: center;">
+                <div class="metric" contenteditable="true">$500M+</div>
+                <div class="metric-label">OpenAI → Rockset</div>
+                <p style="margin-top: 16px; color: #a0a0c0; font-size: 15px;">Аналитическая платформа<br>Инфраструктура ChatGPT</p>
+                <span class="badge badge-success" style="margin-top: 12px;">Технологический стек</span>
             </div>
-          </div>
-        </section>
+        </div>
 
-        <!-- Skills &amp; Interests Section -->
-        <section id="skills" class="section-spacing">
-          <h2 class="text-base text-medium mb-6 tracking-wide">НАВЫКИ И ИНТЕРЕСЫ</h2>
+        <div class="insight-box" style="margin-top: 40px;">
+            <p contenteditable="true">«Корпоративные инновации перешли от портфельного менеджмента к стратегической архитектуре. Меньше сделок, но выше убеждённость. Корпорации действуют раньше — на стадиях Series A и B» — FounderNest, 2026</p>
+        </div>
 
-          <div class="grid grid-cols-2 gap-8">
-            <div>
-              <h3 class="text-sm text-medium mb-3">Языки</h3>
-              <div class="space-y-1 text-sm">
-                <div>Английский — <span class="text-semibold">C2</span></div>
-                <div>Немецкий — <span class="text-semibold">B1</span></div>
-                <div>Китайский — <span class="text-semibold">A1</span></div>
-              </div>
+        <div style="margin-top: 30px;">
+            <h3 style="color: #ffab76;">Ключевой тренд 2025-2026</h3>
+            <p style="font-size: 18px; color: #a0a0c0; line-height: 1.6;">
+                Корпорации переключаются с <span style="color: #fff;">пассивного венчурного инвестирования</span> на 
+                <span style="color: #4ecdc4;">активное стратегическое поглощение</span>. 
+                AI-стартапы покупаются не ради финансовой выгоды, а ради <span style="color: #fff;">продуктового усиления</span>.
+            </p>
+        </div>
+
+        <div class="footer-bar">
+            <span class="footer-text">Источники: OpenAI, Databricks, FounderNest, TechCrunch | 2025-2026</span>
+            <span class="page-num">4 / 6</span>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 5: Models Comparison -->
+<div class="slide">
+    <div class="content">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+            <span class="badge badge-global">МОДЕЛИ</span>
+        </div>
+        <h1 contenteditable="true">4 модели взаимодействия: сравнение</h1>
+        <p class="subtitle">Как корпорации забирают результаты работы с AI-стартапами</p>
+
+        <table class="model-table">
+            <thead>
+                <tr>
+                    <th>Модель</th>
+                    <th>Описание</th>
+                    <th>Примеры</th>
+                    <th>Риски</th>
+                    <th>Оценка</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">1. Поглощение (M&A)</td>
+                    <td contenteditable="true">Корпорация покупает стартап целиком</td>
+                    <td contenteditable="true">OpenAI→Windsurf $3B<br>Databricks→Tecton</td>
+                    <td contenteditable="true">Высокая цена, интеграционные риски</td>
+                    <td><span class="stars">★★★★★</span></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2. Spin-off / Выделение</td>
+                    <td contenteditable="true">Стартап выделяется как независимая компания, корпорация — клиент</td>
+                    <td contenteditable="true">Intel→Articul8<br>GS→Louisa AI<br>DeepMind→Isomorphic</td>
+                    <td contenteditable="true">Потеря контроля, но сохранение связи</td>
+                    <td><span class="stars">★★★★★</span></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">3. Пилоты + Контракты</td>
+                    <td contenteditable="true">Корпорация тестирует, затем подписывает коммерческие соглашения</td>
+                    <td contenteditable="true">Sber500 (7000+ контрактов)<br>GenerationS</td>
+                    <td contenteditable="true">Нет equity, зависимость от стартапа</td>
+                    <td><span class="stars">★★★★☆</span></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">4. Corporate Venture Clienting</td>
+                    <td contenteditable="true">Корпорация = платящий клиент, без инвестиций</td>
+                    <td contenteditable="true">Глобальная практика</td>
+                    <td contenteditable="true">Нет стратегического влияния</td>
+                    <td><span class="stars">★★★☆☆</span></td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">5. Миноритарные инвестиции</td>
+                    <td contenteditable="true">Корпорация берёт долю, но не контролирует</td>
+                    <td contenteditable="true">IIDF, многие CVC</td>
+                    <td contenteditable="true">Размывание фокуса, нет exits</td>
+                    <td><span class="stars">★★☆☆☆</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div class="card" style="border-color: rgba(34,139,34,0.4);">
+                <h3 style="color: #7ee787;">✅ Успешные модели</h3>
+                <p style="color: #a0a0c0; line-height: 1.8;">
+                    • <span style="color: #fff;">Spin-off</span> — сохраняет скорость и таланты<br>
+                    • <span style="color: #fff;">Стратегическое M&A</span> — даёт контроль над технологией<br>
+                    • <span style="color: #fff;">Пилоты + контракты</span> — низкий риск, быстрая валидация
+                </p>
+            </div>
+            <div class="card" style="border-color: rgba(255,140,0,0.4);">
+                <h3 style="color: #ffd54f;">⚠️ Провальные модели</h3>
+                <p style="color: #a0a0c0; line-height: 1.8;">
+                    • <span style="color: #fff;">IIDF</span> — 432 инвестиции, 0 exits<br>
+                    • <span style="color: #fff;">Безфокусные CVC</span> — 50+ стартапов без плана интеграции<br>
+                    • <span style="color: #fff;">Чистое венчурное инвестирование</span> — без стратегической связи
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <span class="footer-text">Анализ на основе 10+ программ globally | 2025-2026</span>
+            <span class="page-num">5 / 6</span>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 6: Recommendations -->
+<div class="slide">
+    <div class="content">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+            <span class="badge badge-success">РЕКОМЕНДАЦИИ</span>
+        </div>
+        <h1 contenteditable="true">Рекомендуемая модель для AI-Помощника</h1>
+        <p class="subtitle">100 гипотез → 20 MVP → 2 продукта для скейла</p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px;">
+            <div class="card" style="text-align: center; border-color: rgba(78,205,196,0.3);">
+                <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+                <h3 style="color: #4ecdc4;">Этап 1: Отбор</h3>
+                <p style="color: #a0a0c0; margin-top: 12px;">100 гипотез</p>
+                <p style="color: #fff; margin-top: 8px; font-size: 18px;">AI-скрининг + экспертная оценка</p>
+                <p style="color: #8892b0; margin-top: 8px; font-size: 14px;">Референс: Sber500 отбор</p>
             </div>
 
-            <div>
-              <h3 class="text-sm text-medium mb-3">Интересы</h3>
-              <p class="text-sm italic">Сильный интерес к эмерджентным технологиям, применению искусственного интеллекта в бизнесе и социальному прогрессу</p>
+            <div class="card" style="text-align: center; border-color: rgba(78,205,196,0.3);">
+                <div style="font-size: 48px; margin-bottom: 16px;">🧪</div>
+                <h3 style="color: #4ecdc4;">Этап 2: Пилоты</h3>
+                <p style="color: #a0a0c0; margin-top: 12px;">20 MVP</p>
+                <p style="color: #fff; margin-top: 8px; font-size: 18px;">Внутренние пилоты в корпорации</p>
+                <p style="color: #8892b0; margin-top: 8px; font-size: 14px;">Референс: Sber500, GenerationS</p>
             </div>
-          </div>
-        </section>
-      </div>
-    </main>
 
-    <script>
-        // Smooth scrolling for TOC links
-        document.querySelectorAll('.toc-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+            <div class="card" style="text-align: center; border-color: rgba(255,215,0,0.3);">
+                <div style="font-size: 48px; margin-bottom: 16px;">🚀</div>
+                <h3 style="color: #ffd54f;">Этап 3: Скейл</h3>
+                <p style="color: #a0a0c0; margin-top: 12px;">2 продукта</p>
+                <p style="color: #fff; margin-top: 8px; font-size: 18px;">Spin-off с опцией выкупа</p>
+                <p style="color: #8892b0; margin-top: 8px; font-size: 14px;">Референс: Intel→Articul8</p>
+            </div>
+        </div>
 
-        // Highlight active section in TOC
-        const sections = document.querySelectorAll('section[id]');
-        const tocLinks = document.querySelectorAll('.toc-link');
+        <div class="insight-box" style="margin-top: 40px;">
+            <p contenteditable="true">«Почему spin-off лучше прямого поглощения для AI-продуктов: AI-стартапам нужна скорость и культура, которой нет в корпорации. Сохранение независимости привлекает лучшие таланты. Корпорация получает первый доступ к технологии через контракты. Опция полного выкупа остаётся открытой на поздних стадиях.»</p>
+        </div>
 
-        function updateActiveTocLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
+        <div style="margin-top: 30px; text-align: center;">
+            <div style="display: inline-block; background: rgba(78,205,196,0.1); border: 2px solid rgba(78,205,196,0.4); border-radius: 16px; padding: 24px 48px;">
+                <p style="font-size: 20px; color: #4ecdc4; font-weight: 600;">Ключевой инсайт 2025-2026</p>
+                <p style="font-size: 18px; color: #a0a0c0; margin-top: 12px;" contenteditable="true">
+                    Spin-off и M&A — доминирующие модели для AI-продуктов.<br>
+                    Корпорации покупают не ради финансовой выгоды, а ради продуктового усиления.
+                </p>
+            </div>
+        </div>
 
-            tocLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
+        <div class="footer-bar">
+            <span class="footer-text">AI-Помощник | Акселерационная программа | Источники: Sber500, Y Combinator, KPMG, FounderNest, Stanford GSB</span>
+            <span class="page-num">6 / 6</span>
+        </div>
+    </div>
+</div>
+
+<div class="edit-hint" onclick="this.style.display='none'">
+    💡 Кликните на любой текст, чтобы редактировать. Сохраните страницу (Ctrl+S) после изменений.
+</div>
+
+<script>
+    // Make all text elements editable
+    document.querySelectorAll('h1, h2, h3, p, td, .metric, .card-title, .program-name').forEach(el => {
+        if (!el.hasAttribute('contenteditable')) {
+            el.setAttribute('contenteditable', 'true');
         }
+    });
 
-        window.addEventListener('scroll', updateActiveTocLink);
-        updateActiveTocLink(); // Initial call
-    </script>
-  
+    // Add visual feedback for editable areas
+    document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+        el.addEventListener('focus', function() {
+            this.style.background = 'rgba(78,205,196,0.1)';
+        });
+        el.addEventListener('blur', function() {
+            this.style.background = 'transparent';
+        });
+    });
+</script>
 
-</body></html>
+</body>
+</html>
